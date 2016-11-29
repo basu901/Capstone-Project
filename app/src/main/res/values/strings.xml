@@ -1,0 +1,151 @@
+<resources>
+    <string name="app_name">Ufit Beta</string>
+    <string name="routine_header">ROUTINE MAKER</string>
+    <string name="routine_header_cd">Tab to make routines</string>
+    <string name="routine_add_cd">Tap to create new routine</string>
+    <string name="routine_details_header">ROUTINE HEADER:</string>
+    <string name="routine_hint">Workout details..</string>
+    <string name="routine_added_workout_detail_cd">Add to routine</string>
+    <string name="routine_completed_cd">Add routine</string>
+    <string name="routine_detail_clear_cd">Remove Item</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="colon">:</string>
+    <string name="icon_holder">icon holder</string>
+    <string name="not_filled">Data not provided</string>
+    <string name="weight_small">Weight</string>
+    <string name="height_small">Height</string>
+    <string name="dob_small">Date Of Birth</string>
+    <string name="bmi_small">BMI</string>
+    <string name="calorie_small">Calories</string>
+    <string name="graph_small">Graph</string>
+    <string name="image_holder">Image of navigation item</string>
+    <string name="bmi_auto">"BMI is set automatically"</string>
+    <string name="invalid_format">"INVALID FORMAT"</string>
+    <string name="no_network">Sorry, no network available!</string>
+    <string name="cal_unit">cal</string>
+    <string name="invalid">INVALID INPUT</string>
+
+    //Login Details
+    <string name="first_name">FIRST NAME : </string>
+    <string name="last_name">LAST NAME : </string>
+    <string name="dob">DATE OF BIRTH : </string>
+    <string name="weight">WEIGHT : </string>
+    <string name="height">HEIGHT : </string>
+    <string name="gender">GENDER : </string>
+    <string name="first_name_caps">FIRST NAME</string>
+    <string name="last_name_caps">LAST NAME</string>
+    <string name="dob_caps">DATE OF BIRTH</string>
+    <string name="weight_caps">WEIGHT</string>
+    <string name="height_caps">HEIGHT</string>
+    <string name="gender_caps">GENDER</string>
+    <string name="weight_hint">In Kilograms</string>
+    <string name="height_hint">In Meters</string>
+    <string name="begin_button">BEGIN!</string>
+    <string name="user_shared_pref">com.example.shaunakbasu.capstone.USER_DETAILS</string>
+    <string name="user_weight">USER_WEIGHT</string>
+    <string name="user_first_name">USER_FIRST_NAME</string>
+    <string name="user_last_name">USER_LAST_NAME</string>
+    <string name="user_height">USER_HEIGHT</string>
+    <string name="user_gender">USER GENDER</string>
+    <string name="user_dob">USER_DOB</string>
+    <string name="user_bmi">USER_BMI</string>
+    <string name="logged_in">HAS LOGGED</string>
+    <string name="date_format">MM/DD/YYYY</string>
+    <string name="not_valid">is not valid.Please try again</string>
+    <string name="set">Set</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+
+    //calorie
+    <string name="calorie_title">Calories</string>
+    <string name="calorie_add_cd">Click to add calorie</string>
+    <string name="calorie_click">Click to view calorie details</string>
+    <string name="calorie_today">Today\'s calories</string>
+    <string name="calorie_add_button">ADD</string>
+    <string name="calorie_food_input">Enter food item</string>
+    <string name="food_hint">FOOD ITEM</string>
+    <string name="invalid_food">INVALID FOOD ITEM</string>
+    <string name="food_not_found">Sorry!!Food item not found!</string>
+    <string name="brand_name">Brand Name</string>
+    <string name="calorie_count">Calories</string>
+    <string name="calorie_logged">VALUE NOTED!</string>
+    <string name="calorie_db_error">Unable to store value..Sorry!</string>
+    <string name="calorie_burner_add_cd">Enter additional calories burnt</string>
+    <string name="calorie_burner_add_text">Enter additional calories burnt(Calories burnt on run is already logged)</string>
+    <string name="calorie_add_confirmation">Are you sure you want to add to calorie value? Data cannot be removed on addition</string>
+    <string name="calorie_burn_add_heart_rate">HEART RATE:</string>
+    <string name="calorie_burn_add_heart_rate_hint">Enter O if unknown</string>
+    <string name="calorie_burn_add_time">WORKOUT TIME:</string>
+    <string name="calorie_burn_add_workout_time_hint">In seconds</string>
+    <string name="powered_by">Powered By :</string>
+    <string name="calories_burnt_label">Calories Burnt :</string>
+
+    //graph
+
+    <string name="graph_click">Click to view graph details</string>
+    <string name="graph_calories_label">Calories Consumed</string>
+    <string name="graph_burn_label">Calories Burnt</string>
+    <string name="graph_prompt">Timeline :</string>
+    <string name="date_first">1/</string>
+    <string name="slash">/</string>
+    <string name="dash">-</string>
+    <string name="calories">Calorie Metrics</string>
+    <string name="metrics">Calorie Flow</string>
+    <string name="selected_item">SELECTED ITEM</string>
+
+
+    //stopwatch
+    <string name="play_cd">Click to play or pause</string>
+    <string name="reset">Click to reset</string>
+    <string name="stopwatch_initial">00:00:00</string>
+
+    //map
+    <string name="marker_start">START</string>
+    <string name="marker_stop">STOP</string>
+    <string name="map_distance_label">Distance : </string>
+    <string name="map_time_label">Time : </string>
+    <string name="map_speed_label">Avg. miles/hr : </string>
+    <string name="map_start_run">START RUN</string>
+    <string name="map_stop_run">STOP RUN</string>
+    <string name="map_other">Other : </string>
+    <string name="map_running_activity">RUNNING</string>
+    <string name="map_bicycle_activity">BICYCLE</string>
+    <string name="map_walking_activity">WALKING</string>
+    <string name="map_other_activity">OTHER</string>
+    <string name="map_running_cd">Running Distance</string>
+    <string name="map_walking_cd">Walking Distance</string>
+    <string name="map_biking_cd">Biking Distance</string>
+    <string name="map_meters">meters</string>
+    <string name="map_min">min</string>
+    <string name="map_sec">sec</string>
+    <string name="map_run">START RUNNING</string>
+    <string name="map_cal_burn">calories burnt</string>
+    <string name="map_connecting_client">Please wait.Connecting to Google Maps..</string>
+    <string name="map_press_start">Click START BUTTON to begin!</string>
+
+    //routine
+    <string name="routine_inserted">INSERTED!!</string>
+    <string name="routine_fill_in_header">FILL IN THE ROUTINE HEADER</string>
+    <string name="routine_no_workout_details">THERE IS NO WORKOUT DETAILS!</string>
+    <string name="routine_item_deleted">ITEM DELETED</string>
+    <string name="routine_item_not_deleted">Sorry item could not be deleted!</string>
+    <string name="routine_permanent_delete_cd">Permanent Delete Button</string>
+    <string name="routine_edit_cd">Edit Routine Button</string>
+    <string name="routine_confirmation">Are you sure you want to permanently delete the routine?</string>
+    <string name="routine_deleted">ROUTINE DELETED</string>
+    <string name="routine_unable_delete">Sorry,unable to delete routine!</string>
+    <string name="routine_update">Routine Updated!</string>
+    <string name="routine_update_unable">Sorry,unable to update Routine!</string>
+    <string name="routine_cant_create">Cannot create routine with no items!</string>
+    <string name="routine_uncheck_cd">Uncheck all items button</string>
+    <string name="routine_uncheck_items">Uncheck all items?</string>
+    <string name="routine_unchecked">UNCHECKED</string>
+    <string name="routine_uncheck_unable">Sorry, items could not be unchecked..</string>
+
+    //widget
+    <string name="widget_calorie_burnt">Calories Burnt :</string>
+    <string name="widget_calorie_consumed">Calorie Consumed :</string>
+    <string name="calorie_metrics">Today\'s Calorie Metrics</string>
+
+</resources>

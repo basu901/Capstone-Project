@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#607D8B">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stopwatch_initial"
+        android:textColor="@android:color/white"
+        android:textSize="32sp"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/stopwatch_text" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:id="@+id/stopwatch_play"
+        android:contentDescription="@string/play_cd"
+        android:src="@drawable/ic_play_circle_filled_black_48dp"
+        android:background="@drawable/ripple_button_stopwatch"
+        android:layout_below="@id/stopwatch_text"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/stopwatch_reset"
+        android:contentDescription="@string/reset"
+        android:src="@drawable/ic_autorenew_white_36dp"
+        android:tint="@android:color/black"
+        android:background="@drawable/ripple_button_map"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
+

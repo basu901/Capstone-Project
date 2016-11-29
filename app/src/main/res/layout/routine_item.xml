@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#009688"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="5"
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@android:color/white"
+        android:id="@+id/routine_header_text"/>
+
+    <ImageButton
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/routine_permanent_delete_cd"
+        android:src="@drawable/ic_clear_white_36dp"
+        android:id="@+id/routine_delete"
+        android:background="#009688"
+        android:layout_margin="8dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
+
