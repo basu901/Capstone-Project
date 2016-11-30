@@ -4,12 +4,12 @@ package com.example.shaunakbasu.capstone;
  * Created by shaunak basu on 24-11-2016.
  */
 public class FoodItems {
-    String food_item,brand_name,calorie_count;
+    String food_item, brand_name, calorie_count;
 
-    public FoodItems(String food_item,String brand_name,String calorie_count){
-        this.food_item=food_item;
-        this.brand_name=brand_name;
-        this.calorie_count=calorie_count;
+    public FoodItems(String food_item, String brand_name, String calorie_count) {
+        this.food_item = food_item;
+        this.brand_name = brand_name;
+        this.calorie_count = calorie_count;
     }
 
     public String getFood_item() {

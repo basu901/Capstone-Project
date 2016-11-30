@@ -11,8 +11,6 @@ import android.util.Log;
 import com.example.shaunakbasu.capstone.BuildConfig;
 import com.example.shaunakbasu.capstone.CalorieActivity;
 
-import org.json.JSONException;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,49 +23,48 @@ import java.net.URL;
  */
 public class FoodItemServices extends IntentService {
 
-    private static String LOG=FoodItemServices.class.getSimpleName();
-    public static String REQUEST_ITEM="food";
-    public static String FOOD_RESULT="food_result";
+    private static String LOG = FoodItemServices.class.getSimpleName();
+    public static String REQUEST_ITEM = "food";
+    public static String FOOD_RESULT = "food_result";
 
     String food;
-    final String base_url="https://api.nutritionix.com/v1_1/search/";
-    final String RESULTS_PARAM="results";
-    final String FIELDS_PARAM="fields";
-    final String APP_ID_PARAM="appId";
-    final String APP_KEY_PARAM="appKey";
+    final String base_url = "https://api.nutritionix.com/v1_1/search/";
+    final String RESULTS_PARAM = "results";
+    final String FIELDS_PARAM = "fields";
+    final String APP_ID_PARAM = "appId";
+    final String APP_KEY_PARAM = "appKey";
 
-    final String results="0:20";
-    final String fields="item_name,brand_name,item_id,nf_calories";
-    final String appId= BuildConfig.APP_ID;
-    final String appKey= BuildConfig.APP_KEY;
+    final String results = "0:20";
+    final String fields = "item_name,brand_name,item_id,nf_calories";
+    final String appId = BuildConfig.APP_ID;
+    final String appKey = BuildConfig.APP_KEY;
 
 
-    public FoodItemServices(){
+    public FoodItemServices() {
         super(LOG);
     }
 
     @Override
-    protected void onHandleIntent(Intent intent){
+    protected void onHandleIntent(Intent intent) {
 
-        food=intent.getStringExtra(REQUEST_ITEM);
+        food = intent.getStringExtra(REQUEST_ITEM);
 
-        String base_food=base_url+food+"?";
+        String base_food = base_url + food + "?";
 
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
-        String result_food_json=null;
-
+        String result_food_json = null;
 
 
         Uri builtUri = Uri.parse(base_food).buildUpon()
-                .appendQueryParameter(RESULTS_PARAM,results)
+                .appendQueryParameter(RESULTS_PARAM, results)
                 .appendQueryParameter(FIELDS_PARAM, fields)
                 .appendQueryParameter(APP_ID_PARAM, appId)
                 .appendQueryParameter(APP_KEY_PARAM, appKey)
                 .build();
 
-        if(isNetworkAvailable()){
-            try{
+        if (isNetworkAvailable()) {
+            try {
 
                 URL url = new URL(builtUri.toString());
 
@@ -98,7 +95,7 @@ public class FoodItemServices extends IntentService {
                 return;
             }*/
                 result_food_json = buffer.toString();
-                Log.v(LOG,result_food_json);
+                Log.v(LOG, result_food_json);
                 //getWeatherDataFromJson(forecastJsonStr, locationQuery);
             } catch (IOException e) {
                 Log.e(LOG, "Error ", e);
@@ -116,18 +113,15 @@ public class FoodItemServices extends IntentService {
                     }
                 }
             }
+        } else {
+            result_food_json = "No network";
         }
-        else{
-            result_food_json="No network";
-        }
 
 
-
-
-        Intent broadcast_food=new Intent();
+        Intent broadcast_food = new Intent();
         broadcast_food.setAction(CalorieActivity.FoodReceiver.RESPONSE);
         broadcast_food.addCategory(Intent.CATEGORY_DEFAULT);
-        broadcast_food.putExtra(FOOD_RESULT,result_food_json);
+        broadcast_food.putExtra(FOOD_RESULT, result_food_json);
         sendBroadcast(broadcast_food);
     }
 

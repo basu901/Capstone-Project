@@ -29,9 +29,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
-            android:textSize="14sp"
+            android:textSize="24sp"
             android:text="@string/graph_prompt"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginStart="16dp" />
 
         <Spinner

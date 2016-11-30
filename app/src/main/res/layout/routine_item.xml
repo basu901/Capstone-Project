@@ -13,7 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:textColor="@android:color/white"
-        android:id="@+id/routine_header_text"/>
+        android:id="@+id/routine_header_text" />
 
     <ImageButton
         android:layout_width="0dp"
@@ -23,7 +23,7 @@
         android:id="@+id/routine_delete"
         android:background="#009688"
         android:layout_margin="8dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
 </LinearLayout>
 

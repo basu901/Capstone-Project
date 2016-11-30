@@ -1,6 +1,5 @@
 package com.example.shaunakbasu.capstone;
 
-import android.app.Application;
 import android.support.multidex.MultiDexApplication;
 
 /**

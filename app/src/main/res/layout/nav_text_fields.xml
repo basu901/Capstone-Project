@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/nav_image_menu"
         android:tint="#757575"
-        android:contentDescription="@string/image_holder"/>
+        android:contentDescription="@string/image_holder" />
 
 
     <TextView
@@ -19,7 +19,7 @@
         android:textSize="14sp"
         android:id="@+id/nav_text_edit_menu"
         android:textColor="@android:color/black"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,6 +29,6 @@
         android:layout_toEndOf="@id/nav_image_menu"
         android:layout_toStartOf="@id/nav_text_edit_menu"
         android:textColor="@android:color/black"
-        android:textSize="14sp"/>
+        android:textSize="14sp" />
 
 </RelativeLayout>

@@ -9,9 +9,11 @@ import net.simonvt.schematic.annotation.Table;
 @Database(version = RoutineDetailsDatabase.VERSION)
 public class RoutineDetailsDatabase {
 
-    private RoutineDetailsDatabase(){}
+    private RoutineDetailsDatabase() {
+    }
 
     public static final int VERSION = 1;
 
-    @Table(RoutineDetailsColumns.class) public static final String ROUTINE = "routine";
+    @Table(RoutineDetailsColumns.class)
+    public static final String ROUTINE = "routine";
 }

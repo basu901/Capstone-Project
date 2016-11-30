@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <group android:id="@+id/group_2"
+    <group
+        android:id="@+id/group_2"
         android:checkableBehavior="single">
-        <item android:id="@+id/nav_calorie"
+        <item
+            android:id="@+id/nav_calorie"
             android:title="@string/calorie_small"
-            android:icon="@drawable/ic_calorie_18dp"/>
+            android:icon="@drawable/ic_calorie_18dp" />
     </group>
-    <group android:id="@+id/group_3"
+    <group
+        android:id="@+id/group_3"
         android:checkableBehavior="single">
-        <item android:id="@+id/nav_graphs"
+        <item
+            android:id="@+id/nav_graphs"
             android:title="@string/graph_small"
-            android:icon="@drawable/ic_graph_18dp"/>
+            android:icon="@drawable/ic_graph_18dp" />
     </group>
     <group android:id="@+id/group_1">
-        <item android:id="@+id/nav_weight"
-            app:actionLayout="@layout/nav_text_fields"/>
-        <item android:id="@+id/nav_height"
-            app:actionLayout="@layout/nav_text_fields"/>
-        <item android:id="@+id/nav_dob"
-            app:actionLayout="@layout/nav_text_fields"/>
-        <item android:id="@+id/nav_bmi"
-            app:actionLayout="@layout/nav_text_fields"/>
+        <item
+            android:id="@+id/nav_weight"
+            app:actionLayout="@layout/nav_text_fields" />
+        <item
+            android:id="@+id/nav_height"
+            app:actionLayout="@layout/nav_text_fields" />
+        <item
+            android:id="@+id/nav_dob"
+            app:actionLayout="@layout/nav_text_fields" />
+        <item
+            android:id="@+id/nav_bmi"
+            app:actionLayout="@layout/nav_text_fields" />
     </group>
 
 </menu>

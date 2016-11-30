@@ -1,6 +1,5 @@
 package com.example.shaunakbasu.capstone;
 
-import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -33,21 +31,38 @@ public class Stopwatch extends Fragment {
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public Runnable updateTimer = new Runnable() {
+        public void run() {
+            timeInMilliseconds = SystemClock.uptimeMillis() - starttime;
+            updatedtime = timeSwapBuff + timeInMilliseconds;
+            secs = (int) (updatedtime / 1000);
+            mins = secs / 60;
+            secs = secs % 60;
+            milliseconds = (int) (updatedtime % 1000);
+            String colon = getResources().getString(R.string.colon);
+            String display = "" + mins + colon + String.format("%02d", secs) + colon
+                    + String.format("%03d", milliseconds);
+            time.setText(display);
+            time.setTextColor(getResources().getColor(R.color.colorAccent));
+            handler.postDelayed(this, 0);
+        }
+    };
 
-        if(rootView==null){
-            rootView= inflater.inflate(R.layout.stopwatch,container,false);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        if (rootView == null) {
+            rootView = inflater.inflate(R.layout.stopwatch, container, false);
         }
 
-        start=(ImageButton)rootView.findViewById(R.id.stopwatch_play);
-        reset=(ImageButton)rootView.findViewById(R.id.stopwatch_reset);
+        start = (ImageButton) rootView.findViewById(R.id.stopwatch_play);
+        reset = (ImageButton) rootView.findViewById(R.id.stopwatch_reset);
 
-        time=(TextView)rootView.findViewById(R.id.stopwatch_text);
+        time = (TextView) rootView.findViewById(R.id.stopwatch_text);
 
 
         start.setOnClickListener(new View.OnClickListener() {
@@ -67,10 +82,9 @@ public class Stopwatch extends Fragment {
                     timeSwapBuff += timeInMilliseconds;
                     handler.removeCallbacks(updateTimer);
                     t = 1;
-                }}
+                }
+            }
         });
-
-
 
 
         reset.setOnClickListener(new View.OnClickListener() {
@@ -88,30 +102,13 @@ public class Stopwatch extends Fragment {
                 milliseconds = 0;
                 start.setImageResource(R.drawable.ic_play_circle_filled_black_48dp);
                 handler.removeCallbacks(updateTimer);
-                String initial=getResources().getString(R.string.stopwatch_initial);
+                String initial = getResources().getString(R.string.stopwatch_initial);
                 time.setText(initial);
-            }});
-
+            }
+        });
 
 
         return rootView;
 
     }
-
-
-    public Runnable updateTimer = new Runnable() {
-        public void run() {
-            timeInMilliseconds = SystemClock.uptimeMillis() - starttime;
-            updatedtime = timeSwapBuff + timeInMilliseconds;
-            secs = (int) (updatedtime / 1000);
-            mins = secs / 60;
-            secs = secs % 60;
-            milliseconds = (int) (updatedtime % 1000);
-            String colon=getResources().getString(R.string.colon);
-            String display="" + mins + colon + String.format("%02d", secs) + colon
-                    + String.format("%03d", milliseconds);
-            time.setText(display);
-            time.setTextColor(getResources().getColor(R.color.colorAccent));
-            handler.postDelayed(this, 0);
-        }};
 }

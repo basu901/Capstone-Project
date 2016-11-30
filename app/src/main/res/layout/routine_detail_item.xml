@@ -9,14 +9,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        android:id="@+id/routine_checkbox"/>
+        android:id="@+id/routine_checkbox" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="6"
         android:textColor="@android:color/black"
-        android:id="@+id/routine_detail_text"/>
+        android:id="@+id/routine_detail_text" />
 
 
     <ImageButton
@@ -28,7 +28,7 @@
         android:background="#FFF9C4"
         android:tint="@android:color/black"
         android:contentDescription="@string/routine_detail_clear_cd"
-        android:src="@drawable/ic_remove_circle_outline_white_24dp"/>
+        android:src="@drawable/ic_remove_circle_outline_white_24dp" />
 
 
 </LinearLayout>

@@ -16,20 +16,20 @@ public class CalorieBurntProvider {
 
     static final Uri BASE_CONTENT_URI = Uri.parse("content://" + AUTHORITY);
 
-    interface Path{
-        String CALORIE_BURNT= "calorie_burnt";
+    interface Path {
+        String CALORIE_BURNT = "calorie_burnt";
     }
 
-    private static Uri buildUri(String... paths){
+    private static Uri buildUri(String... paths) {
         Uri.Builder builder = BASE_CONTENT_URI.buildUpon();
-        for (String path:paths){
+        for (String path : paths) {
             builder.appendPath(path);
         }
         return builder.build();
     }
 
     @TableEndpoint(table = CalorieBurntDatabase.CALORIE_BURNT)
-    public static class Calorie_Burnt{
+    public static class Calorie_Burnt {
         @ContentUri(
                 path = Path.CALORIE_BURNT,
                 type = "vnd.android.cursor.dir/calorie_burnt"
@@ -43,8 +43,8 @@ public class CalorieBurntProvider {
                 whereColumn = CalorieBurntColumns._ID,
                 pathSegment = 1
         )
-        public static Uri withID(int id){
-            return buildUri(Path.CALORIE_BURNT , Integer.toString(id));
+        public static Uri withID(int id) {
+            return buildUri(Path.CALORIE_BURNT, Integer.toString(id));
         }
     }
 }

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp" >
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/prompt_calorie_burn_message"
@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/calorie_burn_add_heart_rate"/>
+            android:text="@string/calorie_burn_add_heart_rate" />
 
         <EditText
             android:layout_width="0dp"
@@ -26,11 +26,13 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:hint="@string/calorie_burn_add_heart_rate_hint"
-            android:id="@+id/heart_rate_edit_text"/>
+            android:id="@+id/heart_rate_edit_text" />
+
         <requestFocus />
 
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -38,7 +40,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/calorie_burn_add_time"/>
+            android:text="@string/calorie_burn_add_time" />
 
         <EditText
             android:layout_width="0dp"
@@ -46,7 +48,7 @@
             android:inputType="number"
             android:layout_height="wrap_content"
             android:hint="@string/calorie_burn_add_workout_time_hint"
-            android:id="@+id/workout_time_edit_text"/>
+            android:id="@+id/workout_time_edit_text" />
 
     </LinearLayout>
 

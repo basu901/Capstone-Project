@@ -21,26 +21,26 @@ import java.util.Calendar;
  */
 public class MyWidgetProvider extends AppWidgetProvider {
 
-    int day,month,year;
+    int day, month, year;
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         final int count = appWidgetIds.length;
-        String cal="0.0";
-        String burn="0.0";
+        String cal = "0.0";
+        String burn = "0.0";
         Calendar calendar = Calendar.getInstance();
         day = calendar.get(Calendar.DATE);
         month = calendar.get(Calendar.MONTH) + 1;
         year = calendar.get(Calendar.YEAR);
 
         Cursor cal_cursor = context.getContentResolver().query(CalorieIntakeProvider.Calorie_Intake.CONTENT_URI,
-                new String[]{CalorieIntakeColumns.AMOUNT,CalorieIntakeColumns.MONTH,CalorieIntakeColumns.YEAR,CalorieIntakeColumns.DATE},
-                        CalorieIntakeColumns.DATE + " =? AND " +
+                new String[]{CalorieIntakeColumns.AMOUNT, CalorieIntakeColumns.MONTH, CalorieIntakeColumns.YEAR, CalorieIntakeColumns.DATE},
+                CalorieIntakeColumns.DATE + " =? AND " +
                         CalorieIntakeColumns.MONTH + " =? AND " +
                         CalorieIntakeColumns.YEAR + " =?",
                 new String[]{Integer.toString(day), Integer.toString(month), Integer.toString(year)}, null);
 
-        if(cal_cursor.getCount()>0) {
+        if (cal_cursor.getCount() > 0) {
             cal_cursor.moveToFirst();
             do {
                 String cal_month = Integer.toString(cal_cursor.getInt(cal_cursor.getColumnIndex(CalorieIntakeColumns.MONTH)));
@@ -49,7 +49,7 @@ public class MyWidgetProvider extends AppWidgetProvider {
                 cal = cal_cursor.getString(cal_cursor.getColumnIndex(CalorieIntakeColumns.AMOUNT));
 
                 Log.v(cal + " " + cal_date, "," + cal_month + "," + cal_year);
-            }while(cal_cursor.moveToNext());
+            } while (cal_cursor.moveToNext());
         }
 
 
@@ -60,11 +60,11 @@ public class MyWidgetProvider extends AppWidgetProvider {
                         CalorieBurntColumns.YEAR + " =?",
                 new String[]{Integer.toString(day), Integer.toString(month), Integer.toString(year)}, null);
 
-        if(burn_cursor.getCount()>0){
+        if (burn_cursor.getCount() > 0) {
             burn_cursor.moveToFirst();
 
             burn = burn_cursor.getString(burn_cursor.getColumnIndex(CalorieBurntColumns.AMOUNT));
-            Log.v("CHECK BuRN:",burn);
+            Log.v("CHECK BuRN:", burn);
         }
 
 
@@ -75,8 +75,8 @@ public class MyWidgetProvider extends AppWidgetProvider {
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
                     R.layout.widget_layout_info);
 
-            String cal_label=cal+context.getResources().getString(R.string.cal_unit);
-            String burn_label=burn+context.getResources().getString(R.string.cal_unit);
+            String cal_label = cal + context.getResources().getString(R.string.cal_unit);
+            String burn_label = burn + context.getResources().getString(R.string.cal_unit);
 
             remoteViews.setTextViewText(R.id.widget_calorie_consumed, cal_label);
             remoteViews.setTextViewText(R.id.widget_calorie_burnt, burn_label);

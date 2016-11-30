@@ -1,6 +1,5 @@
 package com.example.shaunakbasu.capstone;
 
-import android.*;
 import android.Manifest;
 import android.app.Activity;
 import android.appwidget.AppWidgetManager;
@@ -11,16 +10,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.graphics.Color;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -51,35 +47,26 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.Polyline;
-import com.google.android.gms.maps.model.PolylineOptions;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 /**
  * Created by shaunak basu on 19-11-2016.
  */
 public class RunFragment extends Fragment implements OnMapReadyCallback,
-        GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener,
-        LocationListener,ResultCallback<LocationSettingsResult> {
+        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
+        LocationListener, ResultCallback<LocationSettingsResult> {
 
-    private String TAG = RunFragment.class.getSimpleName();
-
-    protected static final int REQUEST_CHECK_SETTINGS = 0x1;
     public static final long UPDATE_INTERVAL_IN_MILLISECONDS = 6000;
-    public static final int REQUEST_LOCATION=100;
-
+    public static final int REQUEST_LOCATION = 100;
+    protected static final int REQUEST_CHECK_SETTINGS = 0x1;
     protected GoogleApiClient mGoogleApiClient;
     protected LocationRequest mLocationRequest;
-
     protected LocationSettingsRequest mLocationSettingsRequest;
     protected Location mCurrentLocation;
-
     protected LatLng first_location;
-
     protected Button mStartUpdatesButton, mStopUpdatesButton;
+    protected Boolean mRequestingLocationUpdates;
     TextView mDistance, mTime, mSpeed, mCalorie;
 
     long start_time, stop_time, min_time, sec_time;
@@ -87,14 +74,12 @@ public class RunFragment extends Fragment implements OnMapReadyCallback,
 
     View rootView, parentLayout;
     GoogleMap googleMap;
-    boolean mapReady = false,getPoly=false;
+    boolean mapReady = false, getPoly = false;
 
     Double lat_dif = 0.0, lon_dif = 0.0;
-
-    protected Boolean mRequestingLocationUpdates;
     double distance_value;
     int marker_checker;
-
+    private String TAG = RunFragment.class.getSimpleName();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -157,9 +142,9 @@ public class RunFragment extends Fragment implements OnMapReadyCallback,
         mapFragment.getMapAsync(this);
 
 
-        if (ContextCompat.checkSelfPermission(getActivity(),android.Manifest.permission.ACCESS_FINE_LOCATION)
+        if (ContextCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-            Log.v(TAG,"REQUESTING PERMISIION");
+            Log.v(TAG, "REQUESTING PERMISIION");
             requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     200);
         } else {
@@ -203,7 +188,7 @@ public class RunFragment extends Fragment implements OnMapReadyCallback,
      */
     @Override
     public void onResult(LocationSettingsResult locationSettingsResult) {
-        Log.v(TAG,"IN ON RESULT!!!!!");
+        Log.v(TAG, "IN ON RESULT!!!!!");
         final Status status = locationSettingsResult.getStatus();
         switch (status.getStatusCode()) {
             case LocationSettingsStatusCodes.SUCCESS:
@@ -232,7 +217,7 @@ public class RunFragment extends Fragment implements OnMapReadyCallback,
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        Log.v(TAG,"IN ONACTIVITYRESULT!!!!!");
+        Log.v(TAG, "IN ONACTIVITYRESULT!!!!!");
         switch (requestCode) {
             // Check for the integer request code originally supplied to startResolutionForResult().
             case REQUEST_LOCATION:
@@ -256,7 +241,7 @@ public class RunFragment extends Fragment implements OnMapReadyCallback,
     public void startUpdatesButtonHandler() {
         checkLocationSettings();
         marker_checker = 1;
-        mRequestingLocationUpdates=true;
+        mRequestingLocationUpdates = true;
         googleMap.clear();
     }
 
@@ -274,16 +259,16 @@ public class RunFragment extends Fragment implements OnMapReadyCallback,
      * Requests location updates from the FusedLocationApi.
      */
     protected void startLocationUpdates() {
-        Log.v(TAG,"IN STARTLOCATIONUPDATSRESULT!!!!!");
+        Log.v(TAG, "IN STARTLOCATIONUPDATSRESULT!!!!!");
 
-        try{
-            if(mGoogleApiClient!=null&&mGoogleApiClient.isConnected()){
+        try {
+            if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
                 LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
                 googleMap.setMyLocationEnabled(true);
 
             }
 
-        }catch (SecurityException e){
+        } catch (SecurityException e) {
 
         }
 
@@ -291,19 +276,18 @@ public class RunFragment extends Fragment implements OnMapReadyCallback,
 
 
     protected void stopLocationUpdates() {
-        Log.v(TAG,"IN STOPLOCATIONUPDAT!!!!!");
+        Log.v(TAG, "IN STOPLOCATIONUPDAT!!!!!");
 
-        if(marker_checker!=5){
-            Snackbar.make(parentLayout,getResources().getString(R.string.map_press_start),Snackbar.LENGTH_SHORT).show();
-        }
-        else{
+        if (marker_checker != 5) {
+            Snackbar.make(parentLayout, getResources().getString(R.string.map_press_start), Snackbar.LENGTH_SHORT).show();
+        } else {
             marker_checker = 2;
 
             stop_time = SystemClock.elapsedRealtime();
 
             try {
                 Location l_location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-                mCurrentLocation=l_location;
+                mCurrentLocation = l_location;
                 updateUI();
 
             } catch (SecurityException e) {
@@ -335,7 +319,6 @@ public class RunFragment extends Fragment implements OnMapReadyCallback,
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(target), 2000, null);
 
 
-
         if (marker_checker == 0) {
             first_location = marker;
         }
@@ -347,8 +330,8 @@ public class RunFragment extends Fragment implements OnMapReadyCallback,
             MarkerOptions start = new MarkerOptions().position(marker).title(getString(R.string.marker_start));
             googleMap.addMarker(start);
             distance_value = 0;
-            getPoly=true;
-            start_time=SystemClock.elapsedRealtime();
+            getPoly = true;
+            start_time = SystemClock.elapsedRealtime();
 
         }
 
@@ -369,8 +352,8 @@ public class RunFragment extends Fragment implements OnMapReadyCallback,
             long f_time = (stop_time - start_time) / 1000;
             min_time = f_time / 60;
             sec_time = f_time % 60;
-            Log.v(TAG+"STOP",Long.toString(stop_time));
-            Log.v(TAG+"START",Long.toString(start_time));
+            Log.v(TAG + "STOP", Long.toString(stop_time));
+            Log.v(TAG + "START", Long.toString(start_time));
             Log.v("DISTANCE", Double.toString(distance_value));
 
             double speed = (distance_value / f_time) * 2.23694;
@@ -398,7 +381,7 @@ public class RunFragment extends Fragment implements OnMapReadyCallback,
             mSpeed.setText(str_speed);
             mCalorie.setText(cal_message);
 
-            if(distance_value>0.0){
+            if (distance_value > 0.0) {
                 calorieBurnDataInput(cal_burn_two_place);
             }
 
@@ -441,7 +424,7 @@ public class RunFragment extends Fragment implements OnMapReadyCallback,
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     try {
-                       startLocationUpdates();
+                        startLocationUpdates();
                     } catch (SecurityException e) {
                         e.printStackTrace();
                     }
@@ -483,13 +466,13 @@ public class RunFragment extends Fragment implements OnMapReadyCallback,
                 CalorieBurntColumns.DATE + " =? AND " +
                         CalorieBurntColumns.MONTH + " =? AND " +
                         CalorieBurntColumns.YEAR + " =? ",
-                new String[]{Integer.toString(day), Integer.toString(month), Integer.toString(year)},null);
+                new String[]{Integer.toString(day), Integer.toString(month), Integer.toString(year)}, null);
 
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
-            Double cal_exist=Double.parseDouble(cursor.getString(cursor.getColumnIndex(CalorieBurntColumns.AMOUNT)));
-            Double cal_new=cal_exist+Double.parseDouble(cal);
-            String cal_up=Utility.twoPlaceConverter(Double.toString(cal_new));
+            Double cal_exist = Double.parseDouble(cursor.getString(cursor.getColumnIndex(CalorieBurntColumns.AMOUNT)));
+            Double cal_new = cal_exist + Double.parseDouble(cal);
+            String cal_up = Utility.twoPlaceConverter(Double.toString(cal_new));
             ContentValues values = new ContentValues();
             values.put(CalorieBurntColumns.AMOUNT, cal_up);
             values.put(CalorieBurntColumns.DATE, day);
@@ -525,10 +508,10 @@ public class RunFragment extends Fragment implements OnMapReadyCallback,
         }
         cursor.close();
 
-        Intent intent = new Intent(getActivity(),MyWidgetProvider.class);
+        Intent intent = new Intent(getActivity(), MyWidgetProvider.class);
         intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
         int[] ids = AppWidgetManager.getInstance(getActivity().getApplication()).getAppWidgetIds(new ComponentName(getActivity().getApplication(), MyWidgetProvider.class));
-        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS,ids);
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
         getActivity().sendBroadcast(intent);
 
     }
@@ -539,8 +522,6 @@ public class RunFragment extends Fragment implements OnMapReadyCallback,
      * enabled if the user is not requesting location updates. The Stop Updates button is enabled
      * if the user is requesting location updates.
      */
-
-
 
 
     @Override

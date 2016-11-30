@@ -37,13 +37,13 @@ import java.util.List;
 public class GraphActivity extends AppCompatActivity {
 
     Calendar calendar;
-    int day_max,min,month,year;
-    ArrayList<BarEntry> consume_value_first,burn_value_first,consume_value_second,burn_value_second;
+    int day_max, min, month, year;
+    ArrayList<BarEntry> consume_value_first, burn_value_first, consume_value_second, burn_value_second;
     BarChart barChart;
     Spinner spinner;
     int selector;
     String position_string;
-    BarDataSet cal_barDataSet1,cal_barDataSet2,burn_barDataSet1,burn_barDataSet2;
+    BarDataSet cal_barDataSet1, cal_barDataSet2, burn_barDataSet1, burn_barDataSet2;
     SharedPreferences user_preferences;
     SharedPreferences.Editor user_edit;
 
@@ -57,13 +57,13 @@ public class GraphActivity extends AppCompatActivity {
         day_max = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
 
         user_preferences = getSharedPreferences(getResources().getString(R.string.user_shared_pref), Context.MODE_PRIVATE);
-        user_edit= user_preferences.edit();
+        user_edit = user_preferences.edit();
 
-        selector=user_preferences.getInt(getResources().getString(R.string.selected_item),0);
-        Log.v("GRAPH",Integer.toString(selector));
+        selector = user_preferences.getInt(getResources().getString(R.string.selected_item), 0);
+        Log.v("GRAPH", Integer.toString(selector));
 
 
-        Toolbar toolbar=(Toolbar)findViewById(R.id.graph_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.graph_toolbar);
         toolbar.setTitle(getResources().getString(R.string.calorie_metrics));
 
         setSupportActionBar(toolbar);
@@ -93,16 +93,15 @@ public class GraphActivity extends AppCompatActivity {
 
         List<String> spinner_items = new ArrayList<>();
 
-        position_string=Integer.toString(month) + slash + getResources().getString(R.string.date_first) + dash + Integer.toString(month) + slash + Integer.toString(min);
+        position_string = Integer.toString(month) + slash + getResources().getString(R.string.date_first) + dash + Integer.toString(month) + slash + Integer.toString(min);
 
-        if(selector==0){
+        if (selector == 0) {
             spinner_items.add(Integer.toString(month) + slash + getResources().getString(R.string.date_first) + dash + Integer.toString(month) + slash + Integer.toString(min));
-            spinner_items.add(Integer.toString(month) + slash + Integer.toString(min + 1) + dash + Integer.toString(month) +slash+ Integer.toString(day_max));
+            spinner_items.add(Integer.toString(month) + slash + Integer.toString(min + 1) + dash + Integer.toString(month) + slash + Integer.toString(day_max));
 
-        }
-        else{
+        } else {
 
-            spinner_items.add(Integer.toString(month) + slash + Integer.toString(min + 1) + dash + Integer.toString(month) +slash+ Integer.toString(day_max));
+            spinner_items.add(Integer.toString(month) + slash + Integer.toString(min + 1) + dash + Integer.toString(month) + slash + Integer.toString(day_max));
             spinner_items.add(Integer.toString(month) + slash + getResources().getString(R.string.date_first) + dash + Integer.toString(month) + slash + Integer.toString(min));
 
         }
@@ -116,10 +115,10 @@ public class GraphActivity extends AppCompatActivity {
     }
 
     @Override
-     public void onStart() {
+    public void onStart() {
         super.onStart();
 
-        Cursor calorie =null;
+        Cursor calorie = null;
         for (int i = 1; i <= min; i++) {
             Float cal_per_day;
             BarEntry cal_bar;
@@ -206,7 +205,7 @@ public class GraphActivity extends AppCompatActivity {
 
         }
 
-        if(calorie!=null)
+        if (calorie != null)
             calorie.close();
 
 
@@ -226,45 +225,44 @@ public class GraphActivity extends AppCompatActivity {
     }
 
 
-        public class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
+    public class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
 
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                String time_line=parent.getItemAtPosition(pos).toString();
-                populateGraph(time_line);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-                // TODO Auto-generated method stub
-            }
-
+        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+            String time_line = parent.getItemAtPosition(pos).toString();
+            populateGraph(time_line);
         }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> arg0) {
+            // TODO Auto-generated method stub
+        }
+
+    }
 
     public void populateGraph(String str) {
 
         BarData barData;
 
-        if(str.equals(position_string)) {
+        if (str.equals(position_string)) {
 
-        barData=new BarData(cal_barDataSet1,burn_barDataSet1);
-            selector=0;
+            barData = new BarData(cal_barDataSet1, burn_barDataSet1);
+            selector = 0;
 
-        }
-        else {
+        } else {
 
             barData = new BarData(cal_barDataSet2, burn_barDataSet2);
-            selector=1;
+            selector = 1;
         }
 
-        Description desc=new Description();
-        String calories=getResources().getString(R.string.calories);
+        Description desc = new Description();
+        String calories = getResources().getString(R.string.calories);
         desc.setText(calories);
         barChart.setData(barData);
         barChart.setDescription(desc);
         barChart.animateXY(2000, 2000);
         barChart.invalidate();
 
-        user_edit.putInt(getResources().getString(R.string.selected_item),selector);
+        user_edit.putInt(getResources().getString(R.string.selected_item), selector);
         user_edit.apply();
 
     }

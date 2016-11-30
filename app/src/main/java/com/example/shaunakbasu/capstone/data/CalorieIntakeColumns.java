@@ -10,16 +10,21 @@ import net.simonvt.schematic.annotation.PrimaryKey;
  */
 public class CalorieIntakeColumns {
 
-    @DataType(DataType.Type.INTEGER) @PrimaryKey
+    @DataType(DataType.Type.INTEGER)
+    @PrimaryKey
     @AutoIncrement
     public static final String _ID = "_id";
-    @DataType(DataType.Type.INTEGER) @NotNull
+    @DataType(DataType.Type.INTEGER)
+    @NotNull
     public static final String DATE = "date";
-    @DataType(DataType.Type.INTEGER) @NotNull
+    @DataType(DataType.Type.INTEGER)
+    @NotNull
     public static final String MONTH = "month";
-    @DataType(DataType.Type.INTEGER) @NotNull
+    @DataType(DataType.Type.INTEGER)
+    @NotNull
     public static final String YEAR = "year";
-    @DataType(DataType.Type.TEXT) @NotNull
+    @DataType(DataType.Type.TEXT)
+    @NotNull
     public static final String AMOUNT = "amount";
 
 }

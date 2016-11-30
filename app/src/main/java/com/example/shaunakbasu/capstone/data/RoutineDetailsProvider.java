@@ -16,20 +16,20 @@ public class RoutineDetailsProvider {
 
     static final Uri BASE_CONTENT_URI = Uri.parse("content://" + AUTHORITY);
 
-    interface Path{
-        String ROUTINE= "routine";
+    interface Path {
+        String ROUTINE = "routine";
     }
 
-    private static Uri buildUri(String... paths){
+    private static Uri buildUri(String... paths) {
         Uri.Builder builder = BASE_CONTENT_URI.buildUpon();
-        for (String path:paths){
+        for (String path : paths) {
             builder.appendPath(path);
         }
         return builder.build();
     }
 
     @TableEndpoint(table = RoutineDetailsDatabase.ROUTINE)
-    public static class Routine{
+    public static class Routine {
         @ContentUri(
                 path = Path.ROUTINE,
                 type = "vnd.android.cursor.dir/routine"
@@ -43,8 +43,8 @@ public class RoutineDetailsProvider {
                 whereColumn = RoutineDetailsColumns._ID,
                 pathSegment = 1
         )
-        public static Uri withID(int id){
-            return buildUri(Path.ROUTINE , Integer.toString(id));
+        public static Uri withID(int id) {
+            return buildUri(Path.ROUTINE, Integer.toString(id));
         }
     }
 }

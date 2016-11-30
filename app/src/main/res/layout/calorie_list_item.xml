@@ -12,7 +12,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@android:color/black"
-        android:id="@+id/calorie_item_text_desc"/>
+        android:id="@+id/calorie_item_text_desc" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,8 +24,7 @@
             android:textColor="@android:color/black"
             android:textSize="14sp"
             android:text="@string/brand_name"
-            android:layout_marginEnd="2dp"
-            />
+            android:layout_marginEnd="2dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,14 +33,14 @@
             android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
             android:textSize="14sp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textColor="@android:color/black"
-            android:id="@+id/calorie_item_brand_text_desc"/>
+            android:id="@+id/calorie_item_brand_text_desc" />
 
 
     </LinearLayout>
@@ -55,7 +54,7 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:textColor="@android:color/black"
-            android:text="@string/calorie_count"/>
+            android:text="@string/calorie_count" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -64,7 +63,7 @@
             android:textSize="14sp"
             android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -72,8 +71,7 @@
             android:textSize="20sp"
             android:textStyle="bold|italic"
             android:id="@+id/calorie_item_cal_text"
-            android:textColor="@android:color/black"
-            />
+            android:textColor="@android:color/black" />
     </LinearLayout>
 
     <ImageButton
@@ -86,6 +84,6 @@
         android:contentDescription="@string/calorie_add_cd"
         android:src="@drawable/ic_add_circle_black_24dp"
         android:background="@drawable/ripple_button_calorie_adder"
-        android:layout_gravity="start"/>
+        android:layout_gravity="start" />
 
 </LinearLayout>

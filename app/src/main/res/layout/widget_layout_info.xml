@@ -12,7 +12,7 @@
         android:paddingStart="4dp"
         android:paddingEnd="4dp"
         android:text="@string/calorie_metrics"
-        android:background="#FFEB3B"/>
+        android:background="#FFEB3B" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,20 +23,20 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:layout_marginStart="4dp"
-            android:text="@string/widget_calorie_consumed"/>
+            android:text="@string/widget_calorie_consumed" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
-            android:id="@+id/widget_calorie_consumed"/>
+            android:id="@+id/widget_calorie_consumed" />
 
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/white"/>
+        android:background="@android:color/white" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,16 +47,15 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:layout_marginStart="4dp"
-            android:text="@string/widget_calorie_burnt"/>
+            android:text="@string/widget_calorie_burnt" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/widget_calorie_burnt"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
-
 
 
 </LinearLayout>

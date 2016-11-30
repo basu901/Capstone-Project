@@ -45,7 +45,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="8dp"
-            android:layout_height="420dp"
+            android:layout_height="600dp"
             android:name="com.google.android.gms.maps.MapFragment" />
 
     </LinearLayout>
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/map_distance"
             android:layout_marginStart="16dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="24dp"
             android:textSize="20sp"
             android:text="@string/map_distance_label" />
 
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/map_time"
             android:layout_marginStart="16dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="24dp"
             android:textSize="20sp"
             android:layout_below="@id/map_distance"
             android:text="@string/map_time_label" />
@@ -102,7 +102,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/map_calories"
             android:layout_marginStart="16dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="24dp"
             android:textSize="20sp"
             android:layout_below="@id/map_time"
             android:text="@string/calories_burnt_label" />

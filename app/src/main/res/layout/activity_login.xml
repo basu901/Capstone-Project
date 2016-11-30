@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/crop_ufit"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
         android:layout_marginStart="8dp"
         android:layout_below="@+id/weight"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
         android:layout_marginStart="8dp"
         android:layout_below="@+id/height"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -141,9 +141,6 @@
         android:layout_alignStart="@+id/editText_weight" />
 
 
-
-
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -153,7 +150,7 @@
         android:text="@string/begin_button"
         android:id="@+id/login_button"
         android:background="@drawable/ripple_button_login"
-        android:textColor="@android:color/black"/>
+        android:textColor="@android:color/black" />
 
 
 </RelativeLayout>

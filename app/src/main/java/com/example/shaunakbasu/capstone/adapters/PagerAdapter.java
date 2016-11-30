@@ -3,7 +3,6 @@ package com.example.shaunakbasu.capstone.adapters;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
 
 import com.example.shaunakbasu.capstone.RoutineFragment;
 import com.example.shaunakbasu.capstone.RunFragment;
@@ -17,6 +16,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
 
     RunFragment runFragment;
+
     public PagerAdapter(FragmentManager fm, int NumOfTabs) {
         super(fm);
         this.mNumOfTabs = NumOfTabs;
@@ -28,7 +28,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                runFragment= new RunFragment();
+                runFragment = new RunFragment();
                 return runFragment;
             case 1:
                 Stopwatch stopwatch = new Stopwatch();
@@ -47,7 +47,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     }
 
 
-    public RunFragment getRunFragment(){
+    public RunFragment getRunFragment() {
         return runFragment;
     }
 

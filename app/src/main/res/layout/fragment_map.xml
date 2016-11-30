@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/root_view_map"
@@ -25,7 +24,7 @@
                 android:id="@+id/map_button_start"
                 android:textColor="@android:color/black"
                 android:background="@drawable/ripple_button_map"
-                android:text="@string/map_start_run"/>
+                android:text="@string/map_start_run" />
 
             <Button
                 android:layout_width="0dp"
@@ -35,12 +34,11 @@
                 android:id="@+id/map_button_stop"
                 android:background="@drawable/ripple_button_map"
                 android:textColor="@android:color/black"
-                android:text="@string/map_stop_run"/>
+                android:text="@string/map_stop_run" />
 
         </LinearLayout>
 
-        <fragment
-            xmlns:android="http://schemas.android.com/apk/res/android"
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/map"
             android:layout_width="match_parent"
             android:layout_marginEnd="16dp"
@@ -70,7 +68,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="16dp"
                 android:textSize="20sp"
-                android:text="@string/map_distance_label"/>
+                android:text="@string/map_distance_label" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -80,7 +78,7 @@
                 android:layout_marginTop="2dp"
                 android:textStyle="bold|italic"
                 android:id="@+id/map_distance_text"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -90,7 +88,7 @@
                 android:layout_marginBottom="16dp"
                 android:textSize="20sp"
                 android:layout_below="@id/map_distance"
-                android:text="@string/map_time_label"/>
+                android:text="@string/map_time_label" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -101,7 +99,7 @@
                 android:layout_marginTop="2dp"
                 android:textStyle="bold|italic"
                 android:id="@+id/map_time_text"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -111,7 +109,7 @@
                 android:layout_marginBottom="16dp"
                 android:textSize="20sp"
                 android:layout_below="@id/map_time"
-                android:text="@string/calories_burnt_label"/>
+                android:text="@string/calories_burnt_label" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -122,7 +120,7 @@
                 android:layout_marginTop="2dp"
                 android:textStyle="bold|italic"
                 android:id="@+id/map_calories_text"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -132,7 +130,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/map_speed_label"
-                android:layout_below="@+id/map_calories"/>
+                android:layout_below="@+id/map_calories" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -143,7 +141,7 @@
                 android:layout_marginTop="2dp"
                 android:textStyle="bold|italic"
                 android:id="@+id/map_speed_text"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
         </RelativeLayout>
 

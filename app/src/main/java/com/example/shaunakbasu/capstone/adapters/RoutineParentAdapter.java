@@ -19,24 +19,30 @@ public class RoutineParentAdapter extends CursorAdapter {
 
     public deleteRoutineListener deleteRoutineListener;
 
-    public interface deleteRoutineListener{
-        void onDeleteClick(View view,String header);
-    }
-
-    public static class ViewHolder {
-
-        public final TextView routine_header;
-        public final ImageButton delete_button;
-
-        public ViewHolder(View view) {
-            routine_header=(TextView)view.findViewById(R.id.routine_header_text);
-            delete_button=(ImageButton)view.findViewById(R.id.routine_delete);
-        }
-    }
-
-    public RoutineParentAdapter(Context context, Cursor c, int flags,deleteRoutineListener deleteRoutineListener) {
+    public RoutineParentAdapter(Context context, Cursor c, int flags, deleteRoutineListener deleteRoutineListener) {
         super(context, c, flags);
-        this.deleteRoutineListener=deleteRoutineListener;
+        this.deleteRoutineListener = deleteRoutineListener;
+    }
+
+    @Override
+    public void bindView(View view, Context context, Cursor cursor) {
+
+        final ViewHolder viewHolder = (ViewHolder) view.getTag();
+
+        viewHolder.routine_header.setText(cursor.getString(cursor.getColumnIndex(RoutineDetailsColumns.ROUTINE_HEADER)));
+        viewHolder.delete_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String header = viewHolder.routine_header.getText().toString();
+                deleteRoutineListener.onDeleteClick(view, header);
+
+            }
+        });
+
+    }
+
+    public interface deleteRoutineListener {
+        void onDeleteClick(View view, String header);
     }
 
     @Override
@@ -52,21 +58,15 @@ public class RoutineParentAdapter extends CursorAdapter {
         return view;
     }
 
-    @Override
-    public void bindView(View view, Context context, Cursor cursor) {
+    public static class ViewHolder {
 
-        final ViewHolder viewHolder = (ViewHolder) view.getTag();
+        public final TextView routine_header;
+        public final ImageButton delete_button;
 
-        viewHolder.routine_header.setText(cursor.getString(cursor.getColumnIndex(RoutineDetailsColumns.ROUTINE_HEADER)));
-        viewHolder.delete_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String header=viewHolder.routine_header.getText().toString();
-                deleteRoutineListener.onDeleteClick(view,header);
-
-            }
-        });
-
+        public ViewHolder(View view) {
+            routine_header = (TextView) view.findViewById(R.id.routine_header_text);
+            delete_button = (ImageButton) view.findViewById(R.id.routine_delete);
+        }
     }
 
 

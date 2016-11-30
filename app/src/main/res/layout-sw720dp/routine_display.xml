@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:background="#5C6BC0"
@@ -36,7 +35,7 @@
                     android:id="@+id/routine_display_header"
                     android:textColor="@android:color/white"
                     android:textSize="32sp"
-                    android:layout_margin="4dp"/>
+                    android:layout_margin="4dp" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -56,7 +55,7 @@
                     android:background="#009688"
                     android:layout_margin="8dp"
                     android:id="@+id/routine_uncheck_all"
-                    android:contentDescription="@string/routine_uncheck_cd"/>
+                    android:contentDescription="@string/routine_uncheck_cd" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -68,12 +67,11 @@
                     android:contentDescription="@string/routine_edit_cd"
                     android:layout_gravity="end"
                     android:layout_marginEnd="16dp"
-                    android:layout_alignParentEnd="true"/>
+                    android:layout_alignParentEnd="true" />
 
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.AppBarLayout>
-
 
 
         <ListView

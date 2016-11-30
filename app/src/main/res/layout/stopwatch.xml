@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#607D8B">
@@ -24,7 +23,7 @@
         android:src="@drawable/ic_play_circle_filled_black_48dp"
         android:background="@drawable/ripple_button_stopwatch"
         android:layout_below="@id/stopwatch_text"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:layout_width="match_parent"
@@ -34,7 +33,7 @@
         android:src="@drawable/ic_autorenew_white_36dp"
         android:tint="@android:color/black"
         android:background="@drawable/ripple_button_map"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
 

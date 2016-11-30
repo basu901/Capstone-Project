@@ -13,7 +13,7 @@ android {
         myconfig {
             keyAlias 'alias'
             keyPassword 'password'
-            storeFile file('C:/Users/shaunak basu/AndroidStudioProjects/Capstone/keystore.jks')
+            storeFile file('../keystore.jks')
             storePassword 'password'
         }
     }
@@ -49,7 +49,8 @@ dependencies {
     compile "com.android.support:design:24.2.1"
     compile "com.android.support:recyclerview-v7:24.2.1"
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.1'
-    compile 'com.google.android.gms:play-services:9.4.0'
+    compile 'com.google.android.gms:play-services-maps:9.4.0'
+    compile 'com.google.android.gms:play-services-location:9.4.0'
     compile 'com.github.castorflex.smoothprogressbar:library:1.1.0'
     compile 'com.android.support:multidex:1.0.1'
 }

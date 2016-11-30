@@ -18,7 +18,7 @@ import java.util.ArrayList;
 /**
  * Created by shaunak basu on 24-11-2016.
  */
-public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.MyViewHolder>{
+public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.MyViewHolder> {
 
     private ArrayList<FoodItems> food_list;
     public CalorieAdderListener calorieAdderListener;
@@ -30,23 +30,24 @@ public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.MyView
     }
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView item,brand,cal;
+        TextView item, brand, cal;
         ImageButton add_cal;
-        public MyViewHolder(View view){
+
+        public MyViewHolder(View view) {
             super(view);
-            item=(TextView)view.findViewById(R.id.calorie_item_text_desc);
-            brand=(TextView)view.findViewById(R.id.calorie_item_brand_text_desc);
-            cal=(TextView)view.findViewById(R.id.calorie_item_cal_text);
-            add_cal=(ImageButton)view.findViewById(R.id.calorie_image_add_button);
+            item = (TextView) view.findViewById(R.id.calorie_item_text_desc);
+            brand = (TextView) view.findViewById(R.id.calorie_item_brand_text_desc);
+            cal = (TextView) view.findViewById(R.id.calorie_item_cal_text);
+            add_cal = (ImageButton) view.findViewById(R.id.calorie_image_add_button);
 
         }
     }
 
-    public FoodItemAdapter(ArrayList<FoodItems> food_list,CalorieAdderListener calorieAdderListener){
-        this.food_list=food_list;
-        this.calorieAdderListener=calorieAdderListener;
+    public FoodItemAdapter(ArrayList<FoodItems> food_list, CalorieAdderListener calorieAdderListener) {
+        this.food_list = food_list;
+        this.calorieAdderListener = calorieAdderListener;
     }
 
     @Override
@@ -66,9 +67,9 @@ public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.MyView
         holder.add_cal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String calories=holder.cal.getText().toString();
+                String calories = holder.cal.getText().toString();
 
-                calorieAdderListener.add_calOnClick(view,calories);
+                calorieAdderListener.add_calOnClick(view, calories);
             }
         });
 
